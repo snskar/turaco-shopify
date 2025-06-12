@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "heartlink-form",
+      "settings": {
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": ["main"]
+} 

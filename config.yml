@@ -1,0 +1,11 @@
+development:
+  password: Shpat_9874dd8bb3ce7c3656b76186761a7661
+  theme_id: "live"
+  store: rz6htf-gj.myshopify.com
+  directory: .
+
+production:
+  password: Shpat_9874dd8bb3ce7c3656b76186761a7661
+  theme_id: "live"
+  store: rz6htf-gj.myshopify.com
+  directory: . 
