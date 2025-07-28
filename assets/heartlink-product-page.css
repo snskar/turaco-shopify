@@ -1,0 +1,160 @@
+/* Heartlink Form Integration on Product Page */
+
+.heartlink-product-form {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.heartlink-form-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.heartlink-product-form .contact__fields {
+  margin-bottom: 20px;
+}
+
+.heartlink-product-form .field {
+  margin-bottom: 16px;
+}
+
+.heartlink-product-form .field-description {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.heartlink-product-form .button-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.heartlink-product-form .button {
+  min-width: 120px;
+}
+
+.heartlink-product-form .page2-description {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.heartlink-product-form .section {
+  margin-bottom: 24px;
+}
+
+.heartlink-product-form .section h4 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Photo previews styling */
+.heartlink-product-form .photo-previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.heartlink-product-form .photo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.heartlink-product-form .photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cross-off chips styling */
+.heartlink-product-form .cross-off-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.heartlink-product-form .cross-off-add {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.heartlink-product-form .cross-off-add input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.heartlink-product-form .cross-off-add button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.heartlink-product-form .cross-off-add button:hover {
+  background: #0056b3;
+}
+
+/* Error message styling */
+.heartlink-product-form .heartlink-field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #dc3545;
+}
+
+.heartlink-product-form .heartlink-form__error-message-wrapper {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.heartlink-product-form .heartlink-form__error-message-wrapper .form__message {
+  color: #721c24;
+  font-size: 0.875rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .heartlink-product-form {
+    padding: 16px;
+  }
+  
+  .heartlink-product-form .button-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .heartlink-product-form .button {
+    width: 100%;
+  }
+  
+  .heartlink-product-form .cross-off-add {
+    flex-direction: column;
+    align-items: stretch;
+  }
+} 

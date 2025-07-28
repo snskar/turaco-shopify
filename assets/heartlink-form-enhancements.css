@@ -1,0 +1,45 @@
+
+/* assets/heartlink-form-enhancements.css */
+
+/* Styling for the remove button on chips */
+.cross-off-chip .remove-btn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #cccccc; /* Subtler gray color */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-left: 8px;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease; /* Smooth transition */
+}
+
+.cross-off-chip .remove-btn:hover {
+  background-color: #ff4d4d; /* Red color on hover */
+}
+
+/* Container for chips to ensure relative positioning */
+.cross-off-chip {
+  position: relative;
+  padding-right: 35px; /* Make space for the button */
+}
+
+/* General button row styling */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.button {
+  cursor: pointer;
+} 

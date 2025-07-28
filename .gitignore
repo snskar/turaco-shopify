@@ -33,6 +33,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Cloudinary configuration (contains sensitive credentials)
+config/cloudinary.json
+config/cloudinary-*.json
+
 # Logs
 logs
 *.log

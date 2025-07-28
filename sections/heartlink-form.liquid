@@ -1,0 +1,238 @@
+{%- comment -%}
+  Main wrapper for the Heartlink Form section.
+{%- endcomment -%}
+
+{{ 'section-heartlink-form.css' | asset_url | stylesheet_tag }}
+{{ 'heartlink-form-enhancements.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+    <div id="custom-form-app">
+      <div id="page-1">
+        <h2 class="title title-wrapper--no-top-margin inline-richtext">Heartlink Details</h2>
+        
+        <!-- General Form Error Message -->
+        <div class="heartlink-form__error-message-wrapper" role="alert" hidden>
+          <span class="form__message">
+            <span class="svg-wrapper">
+              {{- 'icon-error.svg' | inline_asset_content -}}
+            </span>
+            <span class="heartlink-form__error-message"></span>
+          </span>
+        </div>
+
+        <div class="contact__fields">
+          <!-- You Name -->
+          <div>
+            <p class="field-description">First name of the person giving the gift.</p>
+            <div class="field">
+              <input 
+                class="field__input" 
+                type="text" 
+                id="gifter_name" 
+                maxlength="20" 
+                required 
+                placeholder="Your Name"
+                aria-describedby="gifter_name-error"
+              >
+              <label class="field__label" for="gifter_name">Your Name</label>
+            </div>
+            <small class="heartlink-field-error" id="gifter_name-error" hidden>
+              <span class="visually-hidden">Error:</span>
+              <span class="form__message">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                <span class="error-text"></span>
+              </span>
+            </small>
+          </div>
+          <!-- Receiver's Name -->
+          <div>
+            <p class="field-description">First name of the person receiving the gift.</p>
+            <div class="field">
+              <input 
+                class="field__input" 
+                type="text" 
+                id="giftee_name" 
+                maxlength="20" 
+                required 
+                placeholder="Receiver Name"
+                aria-describedby="giftee_name-error"
+              >
+              <label class="field__label" for="giftee_name">Receiver Name</label>
+            </div>
+            <small class="heartlink-field-error" id="giftee_name-error" hidden>
+              <span class="visually-hidden">Error:</span>
+              <span class="form__message">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                <span class="error-text"></span>
+              </span>
+            </small>
+          </div>
+          <!-- Relation -->
+          <div>
+            <p class="field-description">Receiver is your ..?</p>
+            <div class="field">
+              <select 
+                class="field__input" 
+                id="relation" 
+                required
+                aria-describedby="relation-error"
+              >
+                <option value="Friend" selected>Friend</option>
+                <option value="Boyfriend">Boyfriend</option>
+                <option value="Girlfriend">Girlfriend</option>
+                <option value="Husband">Husband</option>
+                <option value="Wife">Wife</option>
+                <option value="Father">Father</option>
+                <option value="Mother">Mother</option>
+                <option value="Sister">Sister</option>
+                <option value="Brother">Brother</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <small class="heartlink-field-error" id="relation-error" hidden>
+              <span class="visually-hidden">Error:</span>
+              <span class="form__message">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                <span class="error-text"></span>
+              </span>
+            </small>
+          </div>
+          <!-- Occasion -->
+          <div>
+            <p class="field-description">The occasion for the gift.</p>
+            <div class="field">
+              <select 
+                class="field__input" 
+                id="occasion" 
+                required
+                aria-describedby="occasion-error"
+              >
+                <option value="Birthday" selected>Birthday</option>
+                <option value="Congratulations">Congratulations</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Valentine's Day">Valentine's Day</option>
+                <option value="New Year">New Year</option>
+                <option value="Diwali">Diwali</option>
+                <option value="Raksha Bandhan">Raksha Bandhan</option>
+                <option value="Get well soon">Get well soon</option>
+                <option value="I am Sorry">I am Sorry</option>
+                <option value="Christmas">Christmas</option>
+                <option value="Just because I love them">Just because I love them</option>
+              </select>
+            </div>
+            <small class="heartlink-field-error" id="occasion-error" hidden>
+              <span class="visually-hidden">Error:</span>
+              <span class="form__message">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                <span class="error-text"></span>
+              </span>
+            </small>
+          </div>
+          <!-- Message -->
+          <div class="message-field">
+            <p class="field-description">A personal message to accompany the heartlink.</p>
+            <div class="field">
+              <textarea class="text-area field__input" id="message" maxlength="150" placeholder="Your message (optional)"></textarea>
+              <label class="field__label" for="message">Message</label>
+            </div>
+          </div>
+        </div>
+        <div class="button-row">
+          <div></div>
+          <button type="button" class="button" id="next_button">Next →</button>
+        </div>
+      </div>
+      <div id="page-2" style="display:none;">
+        <h2 class="title title-wrapper--no-top-margin inline-richtext">Personalize It</h2>
+      
+        <!-- Photo Upload -->
+        <p class="page2-description">Upload up to 10 photos for the gift experience.</p>
+        <div class="field">
+          <button type="button" class="button" id="cloudinary_upload_button" disabled>Upload Photos (max 10)</button>
+          <div class="photo-previews" id="photo_previews"></div>
+        </div>
+      
+       <!-- Compliment Shower -->
+        <div class="section" id="compliment-section">
+          <h3>Compliment Shower</h3>
+          <p class="page2-description">Pick all that apply or add your own!</p>
+          <div class="cross-off-chips" id="compliment_chips"></div>
+          <div class="cross-off-add">
+            <input type="text" id="compliment_custom_input" maxlength="30" placeholder="Add a custom compliment…">
+            <button type="button">+</button>
+          </div>
+        </div>
+      
+        <!-- Spin the Wheel -->
+        <div class="section" id="spin-section" style="margin-top:24px;">
+          <h3>Spin the Wheel Ideas</h3>
+          <p class="page2-description">Pick date ideas or add your own!</p>
+          <div class="cross-off-chips" id="spin_chips"></div>
+          <div class="cross-off-add">
+            <input type="text" id="spin_custom_input" maxlength="50" placeholder="Add a custom idea…">
+            <button type="button">+</button>
+          </div>
+        </div>
+      
+        <!-- Scratch Card -->
+        <div class="section" id="scratch-section" style="margin-top:24px;">
+          <h3>Scratch Card Coupons</h3>
+          <p class="page2-description">Choose fun coupons or add your own!</p>
+          <div class="cross-off-chips" id="scratch_chips"></div>
+          <div class="cross-off-add">
+            <input type="text" id="scratch_custom_input" maxlength="30" placeholder="Add a custom coupon…">
+            <button type="button">+</button>
+          </div>
+        </div>
+      
+      
+        <!-- Navigation Buttons -->
+        <div class="button-row">
+          <button type="button" class="button" id="back_button">← Back</button>
+          <button type="button" class="button" id="save_button">Save & Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
+{{ 'form-logic.js' | asset_url | script_tag }}
+{{ 'cloudinary-integration.js' | asset_url | script_tag }}
+{{ 'heartlink-form.js' | asset_url | script_tag }}
+
+{%- schema -%}
+{
+  "name": "Heartlink Form",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "light",   "label": "Light" },
+        { "value": "dark",    "label": "Dark" }
+      ],
+      "default": "default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heartlink Form",
+      "category": "Forms"
+    }
+  ]
+}
+{%- endschema -%}
